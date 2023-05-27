@@ -60,6 +60,49 @@ class Student{
     $delete = "DELETE FROM tbl_student WHERE id='$id'";
     return $qur = $con->query($delete);
    }
+   public function edit($id){
+      $con = new mysqli("localhost",'root','','php_practice');
+      $find = "SELECT *FROM tbl_student WHERE id='$id'";
+      return $qur = $con->query($find);
+
+   }
+
+   public function update($alldata, $id){
+
+             $name = $alldata['name'];
+             $des = $alldata['des'];
+             $price = $alldata['price'];
+             $status = $alldata['status'];
+
+             
+             if($alldata['name']==""){
+                echo "<script>alert('Name is Required')</script>";
+             }
+             elseif($alldata['des']==""){
+                echo "<script>alert('Des is Required')</script>";
+             }
+             elseif($alldata['price']==""){
+                echo "<script>alert('price is Required')</script>";
+             }
+             elseif($alldata['status']==""){
+                echo "<script>alert('Status is Required')</script>";
+             }
+             else{
+                $con = new mysqli('localhost','root','','php_practice');
+                $update = "UPDATE tbl_student SET name='$name',des='$des',price='$price',status='$status' WHERE id='$id'";
+                $qur = $con->query($update);
+                if($qur){
+                    return header("location:oopcrud.php");
+                    
+                 }
+                 else{
+                    return "Something Went Wrong";
+                 }
+
+             }
+      
+   }
+   
 
 } 
 

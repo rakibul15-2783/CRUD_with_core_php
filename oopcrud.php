@@ -41,8 +41,11 @@
                                         $obj->inactive($id);
                                         header("location:oopcrud.php");
                                       }
-                                      if(isset($_GET['delete'])){
-                                        $id = $_GET['delete'];
+
+                                      //for delete
+                                      
+                                      if(isset($_GET['id'])){
+                                        $id = $_GET['id'];
                                         $obj->delete($id);
                                         header("location:oopcrud.php");
                                       }
@@ -124,8 +127,8 @@
                                 <td>'.$data['price'].'</td>
                                 <td>'.$status.'</td>
                                 <td>
-                                     <a class="btn btn-info btn-sm" >Edit</a>
-                                     <a href="index.php?delete='.$data['id'].'" class="btn btn-danger btn-sm" >Delete</a>
+                                     <a href="edit.php?id='.$data['id'].'" class="btn btn-info btn-sm" >Edit</a>
+                                     <a href="oopcrud.php?id='.$data['id'].'" class="btn btn-danger btn-sm" >Delete</a>
                                 </td>
                                 </tr>';
                              }
