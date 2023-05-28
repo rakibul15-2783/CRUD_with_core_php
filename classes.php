@@ -62,7 +62,7 @@ class Student{
    }
    public function edit($id){
       $con = new mysqli("localhost",'root','','php_practice');
-      $find = "SELECT *FROM tbl_student WHERE id='$id'";
+      $find = "SELECT FROM tbl_student WHERE id='$id'";
       return $qur = $con->query($find);
 
    }
